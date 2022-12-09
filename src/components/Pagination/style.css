@@ -1,0 +1,35 @@
+.pagination-wrapper {
+	display: flex;
+	gap: 12px;
+	padding: 4px;
+	box-sizing: border-box;
+	height: fit-content;
+}
+
+.pagination-wrapper .prev-next-btn {
+	border: none;
+	padding: 8px 12px;
+	cursor: pointer;
+	border-radius: 2px;
+	height: 34px;
+	box-sizing: border-box;
+	width: 60px;
+}
+
+.pagination-wrapper .page-button-wrapper {
+	display: flex;
+	gap: 4px;
+}
+
+.pagination-wrapper .pagin-btn {
+	border: unset;
+	height: 34px;
+	padding: 4px 12px;
+	background: unset;
+	cursor: pointer;
+	color: #bebebe;
+}
+
+.pagination-wrapper .more {
+	color: #bebebe;
+}

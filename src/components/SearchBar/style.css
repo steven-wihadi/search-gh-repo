@@ -1,0 +1,24 @@
+.search-bar-wrapper {
+  display: flex;
+  height: 44px;
+  box-sizing: border-box;
+  padding: 4px;
+  background-color: white;
+}
+
+.search-bar-wrapper  input {
+  width: 300px;
+  padding-left: 8px;
+  font-family: inherit;
+  font-size: 16px;
+  line-height: 16px;
+}
+
+.search-bar-wrapper  button {
+  margin-left: 4px;
+  cursor: pointer;
+}
+
+.search-bar-wrapper button img {
+  width: 28px;
+}

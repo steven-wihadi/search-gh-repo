@@ -1,0 +1,17 @@
+.landing-wrapper {
+	margin-top: 80px;
+}
+
+img {
+  width: 200px;
+  margin-bottom: 16px;
+}
+
+.landing-wrapper .result-container {
+	margin-top: 8px;
+}
+
+.landing-wrapper .landing-pagination-wrapper {
+  display: block;
+  float: right;
+}

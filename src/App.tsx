@@ -1,24 +1,22 @@
-import React from 'react';
-import logo from './logo.svg';
 import './App.css';
+import Fetcher from './services/RestApi.service';
+import Landing from './pages/Landing';
 
 function App() {
+
+  const getRepo = () => {
+    const url = `/repositories?q=steven`;
+    Fetcher.get(url).then(res => {
+      console.log('(OK)res: ', res);
+    }, err => {
+      console.log('(X)err: ', err);
+    });
+  }
+
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      {/* <button onClick={ getRepo }>Click</button> */}
+      <Landing />
     </div>
   );
 }
