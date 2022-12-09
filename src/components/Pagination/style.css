@@ -24,10 +24,18 @@
 .pagination-wrapper .pagin-btn {
 	border: unset;
 	height: 34px;
-	padding: 4px 12px;
+	padding: 4px;
 	background: unset;
 	cursor: pointer;
-	color: #bebebe;
+	width: 42px;
+}
+
+.pagination-wrapper .pagin-btn .active {
+  color: black;
+}
+
+.pagination-wrapper .pagin-btn .in-active {
+  color: #bebebe;
 }
 
 .pagination-wrapper .more {
