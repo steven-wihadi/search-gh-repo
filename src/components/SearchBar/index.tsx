@@ -36,6 +36,7 @@ const Input = (props: PropTypes) => {
 
   const onKeydown = (e: any) => {
     if (e.key === 'Enter') {
+      clearTimeout(timeId);
       onClickSearch();
     }
   }

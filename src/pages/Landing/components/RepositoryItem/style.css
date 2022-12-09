@@ -6,6 +6,7 @@
 	box-sizing: border-box;
 	border: 1px solid #d4d4d4;
   margin-bottom: 12px;
+  max-width: 364px;
 }
 
 .repository-wrapper img {
@@ -21,13 +22,23 @@
 .repository-info h3 {
 	margin: 0px;
 	font-size: 16px;
+  text-align: left;
+  width: 258px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 
 .repository-info span {
 	display: flex;
 	font-size: 14px;
+  width: 258px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 
 .repository-info span h4 {
 	margin: 0px 0px 0px 4px;
+  text-align: left;
 }

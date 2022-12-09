@@ -13,7 +13,7 @@ const Pagination = (props: PropsType) => {
 
   useEffect(() => {
     initPagination();
-  }, []);
+  }, [totalPages]);
 
   const initPagination = () => {
     const resultPages = [];
@@ -74,30 +74,34 @@ const Pagination = (props: PropsType) => {
 
   return (
     <div className="pagination-wrapper">
-      <button
-        className="prev-next-btn"
-        onClick={() => onCLickPrevNext('prev')}>
-          Prev
-      </button>
+      { totalPages !== 0 &&
+        <>
+          <button
+            className="prev-next-btn"
+            onClick={() => onCLickPrevNext('prev')}>
+              Prev
+          </button>
 
-      <div className="page-button-wrapper">
-        {
-          paginOrder.map(num =>
-            <button
-              className='pagin-btn'
-              key={`pagin-${num.id}`}
-              onClick={() => onClickPagin(num.id, num.page)}>
-                <span className={ activePage === num.page ? 'active' : 'in-active' }>{ num.page }</span>
-            </button>
-          )
-        }
-      </div>
+          <div className="page-button-wrapper">
+            {
+              paginOrder.map(num =>
+                <button
+                  className='pagin-btn'
+                  key={`pagin-${num.id}`}
+                  onClick={() => onClickPagin(num.id, num.page)}>
+                    <span className={ activePage === num.page ? 'active' : 'in-active' }>{ num.page }</span>
+                </button>
+              )
+            }
+          </div>
 
-      <button
-        className="prev-next-btn"
-        onClick={() => onCLickPrevNext('next')}>
-          Next
-      </button>
+          <button
+            className="prev-next-btn"
+            onClick={() => onCLickPrevNext('next')}>
+              Next
+          </button>
+        </>
+      }
     </div>
   );
 }
