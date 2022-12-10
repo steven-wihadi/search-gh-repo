@@ -14,12 +14,10 @@ const Landing = () => {
   const [repos, setRepos] = useState([]);
 
   const onChangePagination = (pageClicked) => {
-    setTimeout(() => {
-      if (message !== 'Loading...') {
-        setActivePage(pageClicked);
-        fetch(keyword, pageClicked);
-      }
-    }, 1000);
+    if (message !== 'Loading...') {
+      setActivePage(pageClicked);
+      fetch(keyword, pageClicked);
+    }
   }
 
   function fetch(query, page, isUpdateTotalPages = false) {
@@ -32,7 +30,8 @@ const Landing = () => {
         if (data.total_count > 0) {
           const temp = [];
           if (isUpdateTotalPages) {
-            setTotalPages(data.total_count > 250 ? 250 : data.total_count);
+            const total_count = data.total_count > 250 ? 250 : data.total_count;
+            setTotalPages(JSON.parse(JSON.stringify(total_count)));
           }
 
           data.items.forEach(item => {
@@ -48,12 +47,15 @@ const Landing = () => {
         }
 
         setMessage(data.total_count === 0 ? 'Data not found' : '');
-      } else {
-        setMessage('Error, please try again.');
-      }
+      } 
     }, err => {
       setMessage('Error, please try again.');
     });
+  }
+
+  const onSearch = (val) => {
+    fetch(val, 1, true);
+    setActivePage(1);
   }
 
   return (
@@ -63,8 +65,8 @@ const Landing = () => {
         keyword={ keyword }
         placeHolder='Search repository name here...'
         onChange={(e: any) => setKeyword(e.target.value)}
-        onClickSearch={() => fetch(keyword, activePage, true)}
-        debounceSearch={(e: any) => fetch(e.target.value, activePage, true)}
+        onClickSearch={() => onSearch(keyword)}
+        debounceSearch={(e: any) => onSearch(e.target.value)}
       />
 
       { message === '' &&
