@@ -45,11 +45,14 @@ const Landing = () => {
 
           setRepos([...temp]);
         }
-
-        setMessage(data.total_count === 0 ? 'Data not found' : '');
+        
+        setTimeout(() => {
+          setMessage(data.total_count === 0 ? 'Data not found' : '');
+        }, 1000);
       } 
     }, err => {
       setMessage('Error, please try again.');
+      setTotalPages(0);
     });
   }
 
